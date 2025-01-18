@@ -1,0 +1,210 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Clone</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            width: 100vw;
+            background: linear-gradient(to bottom, rgba(255, 182, 193, 0.8), rgba(255, 240, 245, 0.8));
+            background-image: url('https://example.com/pink-heart-background.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            cursor: url('https://your-server.com/cursors/Hello%20Kitty%20alternate%20select.cur'), auto;
+        }
+
+        a:hover {
+            cursor: url('https://your-server.com/cursors/Hello%20Kitty%20link%20select.ani'), pointer;
+        }
+
+        .logo {
+            margin-bottom: 20px;
+        }
+
+        .search-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            border: 1px solid #dfe1e5;
+            border-radius: 24px;
+            padding: 10px;
+            background-color: white;
+            box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+        }
+
+        .search-box input {
+            flex: 1;
+            border: none;
+            outline: none;
+            font-size: 16px;
+        }
+
+        .search-box button {
+            background: none;
+            border: none;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .results {
+            display: none;
+            flex-direction: column;
+            align-items: flex-start;
+            width: 100%;
+            max-width: 800px;
+            margin-top: 20px;
+        }
+
+        .result-item {
+            border-bottom: 1px solid #e8eaed;
+            padding: 10px 0;
+        }
+
+        .result-item a {
+            font-size: 18px;
+            color: #1a0dab;
+            text-decoration: none;
+        }
+
+        .result-item a:hover {
+            text-decoration: underline;
+        }
+
+        .result-description {
+            font-size: 14px;
+            color: #4d5156;
+        }
+
+        .video-item {
+            margin-bottom: 20px;
+        }
+
+        .video-item img {
+            width: 100%;
+            max-width: 480px;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .video-meta {
+            margin-top: 10px;
+        }
+
+        .video-meta h3 {
+            margin: 5px 0;
+            font-size: 18px;
+        }
+
+        .video-meta h3 a {
+            color: #1a0dab;
+            text-decoration: none;
+        }
+
+        .video-meta h3 a:hover {
+            text-decoration: underline;
+        }
+
+        .video-meta p {
+            margin: 3px 0;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .banner {
+            margin-top: 40px;
+            background-color: #ffeb3b;
+            padding: 10px;
+            font-size: 16px;
+            text-align: center;
+            width: 100%;
+            max-width: 800px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Google Clone Search Page -->
+    <div class="logo">
+        <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" alt="Google Logo">
+    </div>
+    <div class="search-container">
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search Google or type a URL">
+            <button id="searchButton">🔍</button>
+        </div>
+    </div>
+
+    <!-- Results Page -->
+    <div class="results" id="results">
+        <div class="video-item">
+            <a href="https://youtu.be/82xIarXCVR4" target="_blank">
+                <img src="https://img.youtube.com/vi/82xIarXCVR4/maxresdefault.jpg" alt="또냥이랑 인생네컷">
+            </a>
+            <div class="video-meta">
+                <h3><a href="https://youtu.be/82xIarXCVR4" target="_blank">또냥이랑 인생네컷</a></h3>
+                <p>#또냥이#똥강지#인생네컷#사랑해요</p>
+                <p>조회수 1.9억회 • 2025. 1. 9</p>
+            </div>
+        </div>
+
+        <div class="video-item">
+            <a href="https://youtu.be/Ma2kXNWrTnQ" target="_blank">
+                <img src="https://img.youtube.com/vi/Ma2kXNWrTnQ/maxresdefault.jpg" alt="또냥이랑 은밀한 곳에서...">
+            </a>
+            <div class="video-meta">
+                <h3><a href="https://youtu.be/Ma2kXNWrTnQ" target="_blank">또냥이랑 은밀한 곳에서...</a></h3>
+                <p>#룸카페 #아인스 #낭만 #추억</p>
+                <p>조회수 9.9억회 • 2025. 1. 9</p>
+            </div>
+        </div>
+
+        <div class="result-item">
+            <a href="https://blog.naver.com/dkfkatngus04/223729765245" target="_blank">
+                또냥이 키우려면 어떻게 해야 해요?
+            </a>
+            <p class="result-description">또냥이 키우려면 편지가 필요합니다... #편지 #붑레터</p>
+        </div>
+    </div>
+
+    <div class="banner">
+        수현이랑 아람이랑 사귄대 200일이래 🎉
+    </div>
+
+    <script>
+        const searchButton = document.getElementById('searchButton');
+        const searchInput = document.getElementById('searchInput');
+        const results = document.getElementById('results');
+
+        function showResults() {
+            const query = searchInput.value.trim().toLowerCase();
+            if (query === '또냥이 키우기') {
+                results.style.display = 'flex';
+            }
+        }
+
+        searchButton.addEventListener('click', showResults);
+        searchInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                showResults();
+            }
+        });
+    </script>
+</body>
+</html>
